@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package bjh970913.service.v1;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/openapiv2.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+
+};
+
+message StringMessage {
+  string value = 1;
+}
+
+service YourService {
+  rpc Echo(StringMessage) returns (StringMessage) {
+           option (google.api.http) = {
+               post: "/v1/example/echo"
+               body: "*"
+             };
+  }
+}

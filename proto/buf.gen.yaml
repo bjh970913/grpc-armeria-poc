@@ -1,0 +1,14 @@
+version: v1
+
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/acme/weather/private/gen/proto/go
+
+plugins:
+  - name: openapiv2
+    out: gen/openapiv2
+    opt:
+      - generate_unbound_methods=true
+  - name: openapi
+    out: gen/openapiv3
