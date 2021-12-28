@@ -42,6 +42,7 @@ dependencies {
     implementation("io.grpc:grpc-stub:1.42.1")
     implementation("io.grpc:grpc-protobuf:1.42.1")
     implementation("io.grpc:grpc-netty:1.42.1")
+    implementation("io.grpc:grpc-services:1.42.1")
     implementation("com.linecorp.armeria:armeria:1.13.4")
     implementation("com.linecorp.armeria:armeria-grpc:1.13.4")
 
@@ -67,7 +68,7 @@ protobuf {
         // the identifier, which can be referred to in the "plugins"
         // container of the "generateProtoTasks" closure.
         id("grpc") {
-            artifact = "io.grpc:protoc-gen-grpc-java:${grpc}"
+            artifact = "io.grpc:protoc-gen-grpc-java:${grpc}:osx-x86_64"
         }
     }
     generateProtoTasks {

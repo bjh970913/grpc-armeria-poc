@@ -10,6 +10,7 @@ import io.grpc.stub.StreamObserver
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.stereotype.Component
+import io.grpc.protobuf.services.ProtoReflectionService;
 
 
 @SpringBootApplication
@@ -40,6 +41,7 @@ fun main(args: Array<String>) {
                 .values.filterIsInstance(BindableService::class.java)
             svcs.fold(builder) { acc, svc -> acc.addService(svc) }
         }
+        .addService(ProtoReflectionService.newInstance())
         .supportedSerializationFormats(GrpcSerializationFormats.values())
         .enableHttpJsonTranscoding(true)
         .enableUnframedRequests(true)
